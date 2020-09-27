@@ -29,13 +29,13 @@ namespace Registro_Prestamo.UI.Registros
             if (BalanceTextBox.Text.Length == 0)
             {
                 esValido = false;
-                MessageBox.Show("Ha ocurrido un error", "Error",
+                MessageBox.Show("Ha ocurrido un error, debe insertar un balance", "Error",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             else if (NombresTextBox.Text.Length == 0)
             {
                 esValido = false;
-                MessageBox.Show("Ha ocurrido un error", "Error",
+                MessageBox.Show("Ha ocurrido un error, debe insertar el nombre", "Error",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             return esValido;

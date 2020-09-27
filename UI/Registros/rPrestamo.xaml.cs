@@ -32,19 +32,19 @@ namespace Registro_Prestamo.UI.Registros
             if (MontoTextBox.Text.Length == 0)
             {
                 esValido = false;
-                MessageBox.Show("Ha ocurrido un error", "Error",
+                MessageBox.Show("Ha ocurrido un error, Inserte el monto", "Error",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-            if (ConceptoTextBox.Text.Length == 0)
+            else if (ConceptoTextBox.Text.Length == 0)
             {
                 esValido = false;
-                MessageBox.Show("Ha ocurrido un error", "Error",
+                MessageBox.Show("Ha ocurrido un error, debe ingresar un concepto", "Error",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             else if (FechaTextBox.Text.Length == 0)
             {
                 esValido = false;
-                MessageBox.Show("Ha ocurrido un error", "Error",
+                MessageBox.Show("Ha ocurrido un error, ingresa una fecha", "Error",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             return esValido;
@@ -92,7 +92,7 @@ namespace Registro_Prestamo.UI.Registros
                         MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
-                MessageBox.Show("Transaccion Fallida Persona no encontrada", "Fallo",
+                MessageBox.Show("Transaccion Fallida, Persona no encontrada", "Fallo",
                        MessageBoxButton.OK, MessageBoxImage.Error);
         }
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
