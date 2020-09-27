@@ -1,3 +1,7 @@
+C:\Users\Lenovo\source\repos\Registro_Prestamo\bin\Debug\netcoreapp3.1\Imagenes\buscar.png
+C:\Users\Lenovo\source\repos\Registro_Prestamo\bin\Debug\netcoreapp3.1\Imagenes\eliminar.png
+C:\Users\Lenovo\source\repos\Registro_Prestamo\bin\Debug\netcoreapp3.1\Imagenes\guardar.jpg
+C:\Users\Lenovo\source\repos\Registro_Prestamo\bin\Debug\netcoreapp3.1\Imagenes\nuevo.png
 C:\Users\Lenovo\source\repos\Registro_Prestamo\bin\Debug\netcoreapp3.1\Registro_Prestamo.exe
 C:\Users\Lenovo\source\repos\Registro_Prestamo\bin\Debug\netcoreapp3.1\Registro_Prestamo.deps.json
 C:\Users\Lenovo\source\repos\Registro_Prestamo\bin\Debug\netcoreapp3.1\Registro_Prestamo.runtimeconfig.json
@@ -46,12 +50,17 @@ C:\Users\Lenovo\source\repos\Registro_Prestamo\bin\Debug\netcoreapp3.1\runtimes\
 C:\Users\Lenovo\source\repos\Registro_Prestamo\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\Lenovo\source\repos\Registro_Prestamo\obj\Debug\netcoreapp3.1\Registro_Prestamo.csprojAssemblyReference.cache
 C:\Users\Lenovo\source\repos\Registro_Prestamo\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+C:\Users\Lenovo\source\repos\Registro_Prestamo\obj\Debug\netcoreapp3.1\UI\Consultas\cPersona.g.cs
+C:\Users\Lenovo\source\repos\Registro_Prestamo\obj\Debug\netcoreapp3.1\UI\Consultas\cPrestamo.g.cs
 C:\Users\Lenovo\source\repos\Registro_Prestamo\obj\Debug\netcoreapp3.1\UI\Registros\rPersona.g.cs
 C:\Users\Lenovo\source\repos\Registro_Prestamo\obj\Debug\netcoreapp3.1\UI\Registros\rPrestamo.g.cs
 C:\Users\Lenovo\source\repos\Registro_Prestamo\obj\Debug\netcoreapp3.1\App.g.cs
+C:\Users\Lenovo\source\repos\Registro_Prestamo\obj\Debug\netcoreapp3.1\Registro_Prestamo_Content.g.cs
 C:\Users\Lenovo\source\repos\Registro_Prestamo\obj\Debug\netcoreapp3.1\Registro_Prestamo_MarkupCompile.cache
 C:\Users\Lenovo\source\repos\Registro_Prestamo\obj\Debug\netcoreapp3.1\Registro_Prestamo_MarkupCompile.lref
 C:\Users\Lenovo\source\repos\Registro_Prestamo\obj\Debug\netcoreapp3.1\MainWindow.baml
+C:\Users\Lenovo\source\repos\Registro_Prestamo\obj\Debug\netcoreapp3.1\UI\Consultas\cPersona.baml
+C:\Users\Lenovo\source\repos\Registro_Prestamo\obj\Debug\netcoreapp3.1\UI\Consultas\cPrestamo.baml
 C:\Users\Lenovo\source\repos\Registro_Prestamo\obj\Debug\netcoreapp3.1\UI\Registros\rPersona.baml
 C:\Users\Lenovo\source\repos\Registro_Prestamo\obj\Debug\netcoreapp3.1\UI\Registros\rPrestamo.baml
 C:\Users\Lenovo\source\repos\Registro_Prestamo\obj\Debug\netcoreapp3.1\Registro_Prestamo.g.resources
@@ -62,8 +71,3 @@ C:\Users\Lenovo\source\repos\Registro_Prestamo\obj\Debug\netcoreapp3.1\Registro_
 C:\Users\Lenovo\source\repos\Registro_Prestamo\obj\Debug\netcoreapp3.1\Registro_Prestamo.dll
 C:\Users\Lenovo\source\repos\Registro_Prestamo\obj\Debug\netcoreapp3.1\Registro_Prestamo.pdb
 C:\Users\Lenovo\source\repos\Registro_Prestamo\obj\Debug\netcoreapp3.1\Registro_Prestamo.genruntimeconfig.cache
-C:\Users\Lenovo\source\repos\Registro_Prestamo\obj\Debug\netcoreapp3.1\Registro_Prestamo_Content.g.cs
-C:\Users\Lenovo\source\repos\Registro_Prestamo\bin\Debug\netcoreapp3.1\Imagenes\buscar.png
-C:\Users\Lenovo\source\repos\Registro_Prestamo\bin\Debug\netcoreapp3.1\Imagenes\eliminar.png
-C:\Users\Lenovo\source\repos\Registro_Prestamo\bin\Debug\netcoreapp3.1\Imagenes\guardar.jpg
-C:\Users\Lenovo\source\repos\Registro_Prestamo\bin\Debug\netcoreapp3.1\Imagenes\nuevo.png

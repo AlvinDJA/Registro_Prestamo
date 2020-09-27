@@ -1,20 +1,19 @@
 ﻿Registro_Prestamo
-
+1.0.0.0
 
 winexe
 C#
 .cs
-C:\Users\Lenovo\source\repos\Registro_Prestamo\obj\Debug\netcoreapp3.1\
+c:\Users\Lenovo\source\repos\Registro_Prestamo\obj\Debug\netcoreapp3.1\
 Registro_Prestamo
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
-C:\Users\Lenovo\source\repos\Registro_Prestamo\App.xaml
-31383911712
-4-576136401
-13865289124
-216-1317736643
-MainWindow.xaml;UI\Registros\rPersona.xaml;UI\Registros\rPrestamo.xaml;
+c:\Users\Lenovo\source\repos\Registro_Prestamo\App.xaml
+5195876827
+4-124560096
+17-1881463534
+216-207660530
+MainWindow.xaml;UI\Consultas\cPersona.xaml;UI\Consultas\cPrestamo.xaml;UI\Registros\rPersona.xaml;UI\Registros\rPrestamo.xaml;
 
-False
-
+True

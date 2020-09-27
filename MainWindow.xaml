@@ -11,6 +11,8 @@
             <Menu Height="18">
                 <MenuItem x:Name= "rPrestamosMenuItem" Header="_Registro Prestamos" Click="rPrestamoButton_Click"/>
                 <MenuItem x:Name= "rPersonasMenuItem" Header="Registro _Personas" Click="rPersonaButton_Click" />
+                <MenuItem x:Name= "cPrestamosMenuItem" Header="_Consulta Prestamos" Click="cPrestamoButton_Click"/>
+                <MenuItem x:Name= "cPersonasMenuItem" Header="C_onsulta Personas" Click="cPersonaButton_Click" />
             </Menu>
         </StackPanel>
     </Grid>

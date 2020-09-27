@@ -12,6 +12,7 @@ namespace Registro_Prestamo.UI.Registros
         {
             InitializeComponent();
             persona = new Persona();
+            this.DataContext = persona;
         }
         private void Limpiar()
         {

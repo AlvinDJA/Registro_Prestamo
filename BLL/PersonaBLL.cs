@@ -3,6 +3,8 @@ using System.Linq;
 using Registro_Prestamo.DAL;
 using Microsoft.EntityFrameworkCore;
 using Registro_Prestamo.Entidades;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace Registro_Prestamo.BLL
 {
@@ -115,6 +117,25 @@ namespace Registro_Prestamo.BLL
                 contexto.Dispose();
             }
             return encontrado;
+        }
+        
+        public static List<Persona> GetList(Expression<Func<Persona, bool>> criterio)
+        {
+            List<Persona> lista = new List<Persona>();
+            Contexto contexto = new Contexto();
+            try
+            {
+                lista = contexto.Personas.Where(criterio).ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return lista;
         }
     }
 }

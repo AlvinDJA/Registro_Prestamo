@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using Registro_Prestamo.UI.Consultas;
 using Registro_Prestamo.UI.Registros;
 
 namespace Registro_Prestamo
@@ -12,7 +13,7 @@ namespace Registro_Prestamo
         {
             InitializeComponent();
         }
-         public void rPrestamoButton_Click(object sender, RoutedEventArgs e)
+        public void rPrestamoButton_Click(object sender, RoutedEventArgs e)
         {
             rPrestamo rprestamo = new rPrestamo();
             rprestamo.Show();
@@ -21,6 +22,16 @@ namespace Registro_Prestamo
         {
             rPersona rpersona = new rPersona();
             rpersona.Show();
+        }
+        public void cPrestamoButton_Click(object sender, RoutedEventArgs e)
+        {
+            cPrestamo cprestamo = new cPrestamo();
+            cprestamo.Show();
+        }
+         public void cPersonaButton_Click(object sender, RoutedEventArgs e)
+        {
+            cPersona cpersona = new cPersona();
+            cpersona.Show();
         }
     }
 }

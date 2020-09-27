@@ -15,6 +15,7 @@ namespace Registro_Prestamo.UI.Registros
             InitializeComponent();
             prestamo = new Prestamo();
             persona = new Persona();
+            this.DataContext = prestamo;
         }
         private void Limpiar()
         {
