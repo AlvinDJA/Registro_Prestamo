@@ -46,7 +46,11 @@ namespace Registro_Prestamo.UI.Registros
             if (persona != null)
                 this.persona = persona;
             else
-                this.persona = new Persona();
+            {
+                 this.persona = new Persona();
+                 MessageBox.Show("No se ha Encontrado", "Error",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
             this.DataContext = this.persona;
         }
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
@@ -76,7 +80,6 @@ namespace Registro_Prestamo.UI.Registros
             else
                 MessageBox.Show("No fue posible eliminar", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Error);
-
 
         }
     }

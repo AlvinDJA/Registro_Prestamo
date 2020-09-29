@@ -8,12 +8,22 @@
         Title="Prestamos - Pantalla Principal" Height="450" Width="800">
     <Grid>
         <StackPanel>
-            <Menu Height="18">
-                <MenuItem x:Name= "rPrestamosMenuItem" Header="_Registro Prestamos" Click="rPrestamoButton_Click"/>
-                <MenuItem x:Name= "rPersonasMenuItem" Header="Registro _Personas" Click="rPersonaButton_Click" />
-                <MenuItem x:Name= "cPrestamosMenuItem" Header="_Consulta Prestamos" Click="cPrestamoButton_Click"/>
-                <MenuItem x:Name= "cPersonasMenuItem" Header="C_onsulta Personas" Click="cPersonaButton_Click" />
-            </Menu>
+            <StackPanel Orientation = "Horizontal">
+                <Menu Height="18">
+                    <MenuItem Header="Registros" >
+                        <MenuItem x:Name= "rPrestamosMenuItem" Header="_Registro Prestamos" Click="rPrestamoButton_Click"/>
+                        <MenuItem x:Name= "rPersonasMenuItem" Header="Registro _Personas" Click="rPersonaButton_Click" />
+                    </MenuItem>
+                </Menu>
+
+                <Menu Height="18">
+                    <MenuItem Header="Consultas">
+                        <MenuItem x:Name= "cPrestamosMenuItem" Header="_Consulta Prestamos" Click="cPrestamoButton_Click"/>
+                        <MenuItem x:Name= "cPersonasMenuItem" Header="C_onsulta Personas" Click="cPersonaButton_Click" />
+                    </MenuItem>
+                </Menu>
+
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Window>
