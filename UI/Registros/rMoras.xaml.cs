@@ -34,6 +34,24 @@ namespace Registro_Prestamo.UI.Registros
             this.DataContext = Mora;
             
         }
+        private bool ValidarAgregar()
+        {
+            bool esValido = true;
+            if (PrestamoComboBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Ha ocurrido un error, Inserte el prestamo", "Error",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else if (ValorTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Ha ocurrido un error, Inserte el prestamo", "Error",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            return esValido;
+        }
+        
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
             Moras encontrado = MorasBLL.Buscar(Mora.MoraId);
@@ -111,16 +129,19 @@ namespace Registro_Prestamo.UI.Registros
         }
         private void AgregarFilaButton_Click(object sender, RoutedEventArgs e)
         {
-            TotalTextBox.Text = Convert.ToString(Convert.ToDecimal(ValorTextBox.Text) + Convert.ToDecimal(TotalTextBox.Text));
-            Mora.Detalle.Add(new MorasDetalle(Mora.MoraId, Convert.ToInt32(PrestamoComboBox.Text), Convert.ToDecimal(ValorTextBox.Text)));
+            if (!ValidarAgregar())
+                return;
+            Mora.Total += Convert.ToDecimal(ValorTextBox.Text);
+            Mora.Detalle.Add(new MorasDetalle(Mora.MoraId, Convert.ToInt32(PrestamoComboBox.SelectedValue), Convert.ToDecimal(ValorTextBox.Text)));
             Cargar();
             ValorTextBox.Clear();
         }
-
         private void RemoverFilaButton_Click(object sender, RoutedEventArgs e)
         {
             if (MorasDataGrid.Items.Count >= 1 && MorasDataGrid.SelectedIndex <= MorasDataGrid.Items.Count - 1)
             {
+                MorasDetalle m = (MorasDetalle)MorasDataGrid.SelectedValue;
+                Mora.Total -= m.Total;
                 Mora.Detalle.RemoveAt(MorasDataGrid.SelectedIndex);
                 Cargar();
             }
