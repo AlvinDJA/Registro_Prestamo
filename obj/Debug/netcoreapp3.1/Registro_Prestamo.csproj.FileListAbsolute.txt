@@ -71,3 +71,10 @@ C:\Users\Lenovo\source\repos\Registro_Prestamo\obj\Debug\netcoreapp3.1\Registro_
 C:\Users\Lenovo\source\repos\Registro_Prestamo\obj\Debug\netcoreapp3.1\Registro_Prestamo.dll
 C:\Users\Lenovo\source\repos\Registro_Prestamo\obj\Debug\netcoreapp3.1\Registro_Prestamo.pdb
 C:\Users\Lenovo\source\repos\Registro_Prestamo\obj\Debug\netcoreapp3.1\Registro_Prestamo.genruntimeconfig.cache
+C:\Users\Lenovo\source\repos\Registro_Prestamo\obj\Debug\netcoreapp3.1\UI\Consultas\cMoras.g.cs
+C:\Users\Lenovo\source\repos\Registro_Prestamo\obj\Debug\netcoreapp3.1\UI\Registros\rMoras.g.cs
+C:\Users\Lenovo\source\repos\Registro_Prestamo\obj\Debug\netcoreapp3.1\UI\Consultas\cMoras.baml
+C:\Users\Lenovo\source\repos\Registro_Prestamo\obj\Debug\netcoreapp3.1\UI\Registros\rMoras.baml
+C:\Users\Lenovo\source\repos\Registro_Prestamo\bin\Debug\netcoreapp3.1\Imagenes\add.png
+C:\Users\Lenovo\source\repos\Registro_Prestamo\bin\Debug\netcoreapp3.1\Imagenes\delete.png
+C:\Users\Lenovo\source\repos\Registro_Prestamo\bin\Debug\netcoreapp3.1\Imagenes\save-icon-silhouette.png

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Registro_Prestamo"
         mc:Ignorable="d"
-        Title="Prestamos - Pantalla Principal" Height="450" Width="800">
+        Title="Prestamos - Pantalla Principal" Height="129" Width="343" WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel>
             <StackPanel Orientation = "Horizontal">
@@ -13,16 +13,17 @@
                     <MenuItem Header="Registros" >
                         <MenuItem x:Name= "rPrestamosMenuItem" Header="_Registro Prestamos" Click="rPrestamoButton_Click"/>
                         <MenuItem x:Name= "rPersonasMenuItem" Header="Registro _Personas" Click="rPersonaButton_Click" />
+                        <MenuItem x:Name= "rMorasMenuItem" Header="Registro _Moras" Click="rMorasMenuItem_Click" />
                     </MenuItem>
                 </Menu>
 
                 <Menu Height="18">
                     <MenuItem Header="Consultas">
-                        <MenuItem x:Name= "cPrestamosMenuItem" Header="_Consulta Prestamos" Click="cPrestamoButton_Click"/>
-                        <MenuItem x:Name= "cPersonasMenuItem" Header="C_onsulta Personas" Click="cPersonaButton_Click" />
+                        <MenuItem x:Name= "cPrestamosMenuItem" Header="Consulta _Prestamos" Click="cPrestamoButton_Click"/>
+                        <MenuItem x:Name= "cPersonasMenuItem" Header="_Consulta Personas" Click="cPersonaButton_Click" />
+                        <MenuItem x:Name= "cMorasMenuItem" Header="Consulta _Moras" Click="cMorasMenuItem_Click" />
                     </MenuItem>
                 </Menu>
-
             </StackPanel>
         </StackPanel>
     </Grid>

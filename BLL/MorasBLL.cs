@@ -1,29 +1,30 @@
-using System;
-using System.Linq;
+﻿using Microsoft.EntityFrameworkCore;
 using Registro_Prestamo.DAL;
-using Microsoft.EntityFrameworkCore;
 using Registro_Prestamo.Entidades;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 
 namespace Registro_Prestamo.BLL
 {
-    public class PrestamoBLL
+    class MorasBLL
     {
-        public static bool Guardar(Prestamo prestamo)
+        public static bool Guardar(Moras mora)
         {
-            if (!Existe(prestamo.PrestamoId))
-                return Insertar(prestamo);
+            if (!Existe(mora.MoraId))//si no existe insertamos
+                return Insertar(mora);
             else
-                return Editar(prestamo);
+                return Modificar(mora);
         }
-        private static bool Insertar(Prestamo prestamo)
+
+        private static bool Insertar(Moras mora)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
             try
             {
-                contexto.Prestamos.Add(prestamo);
+                contexto.Moras.Add(mora);
                 paso = contexto.SaveChanges() > 0;
             }
             catch (Exception)
@@ -37,13 +38,21 @@ namespace Registro_Prestamo.BLL
             return paso;
         }
 
-        public static bool Editar(Prestamo prestamo)
+        private static bool Modificar(Moras mora)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
+
             try
             {
-                contexto.Entry(prestamo).State = EntityState.Modified;
+                contexto.Database.ExecuteSqlRaw($"Delete FROM MorasDetalle Where MoraId={mora.MoraId}");
+
+                foreach (var item in mora.Detalle)
+                {
+                    contexto.Entry(item).State = EntityState.Added;
+                }
+
+                contexto.Entry(mora).State = EntityState.Modified;
                 paso = contexto.SaveChanges() > 0;
             }
             catch (Exception)
@@ -62,12 +71,14 @@ namespace Registro_Prestamo.BLL
             Contexto contexto = new Contexto();
             try
             {
-                var prestamo = contexto.Prestamos.Find(id);
-                if (prestamo != null)
+                var mora = MorasBLL.Buscar(id);
+
+                if (mora != null)
                 {
-                    contexto.Prestamos.Remove(prestamo);//remover la entidad
+                    contexto.Moras.Remove(mora); 
                     paso = contexto.SaveChanges() > 0;
                 }
+
             }
             catch (Exception)
             {
@@ -79,14 +90,16 @@ namespace Registro_Prestamo.BLL
             }
             return paso;
         }
-
-        public static Prestamo Buscar(int id)
+        public static Moras Buscar(int id)
         {
+            Moras mora = new Moras();
             Contexto contexto = new Contexto();
-            Prestamo prestamo;
+
             try
             {
-                prestamo = contexto.Prestamos.Find(id);
+                mora = contexto.Moras.Include(x => x.Detalle)
+                    .Where(x => x.MoraId == id)
+                    .SingleOrDefault();
             }
             catch (Exception)
             {
@@ -96,17 +109,36 @@ namespace Registro_Prestamo.BLL
             {
                 contexto.Dispose();
             }
+            return mora;
+        }
 
-            return prestamo;
+        public static List<Moras> GetList(Expression<Func<Moras, bool>> criterio)
+        {
+            List<Moras> Lista = new List<Moras>();
+            Contexto contexto = new Contexto();
+
+            try
+            {
+                Lista = contexto.Moras.Where(criterio).ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return Lista;
         }
         public static bool Existe(int id)
         {
             Contexto contexto = new Contexto();
             bool encontrado = false;
+
             try
             {
-                encontrado = contexto.Prestamos
-                    .Any(e => e.PrestamoId == id);
+                encontrado = contexto.Moras.Any(e => e.MoraId == id);
             }
             catch (Exception)
             {
@@ -116,43 +148,8 @@ namespace Registro_Prestamo.BLL
             {
                 contexto.Dispose();
             }
+
             return encontrado;
-        }
-        public static List<Prestamo> GetList(Expression<Func<Prestamo, bool>> criterio)
-        {
-            List<Prestamo> lista = new List<Prestamo>();
-            Contexto contexto = new Contexto();
-            try
-            {
-                lista = contexto.Prestamos.Where(criterio).ToList();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                contexto.Dispose();
-            }
-            return lista;
-        }
-        public static List<Prestamo> GetList()
-        {
-            List<Prestamo> lista = new List<Prestamo>();
-            Contexto contexto = new Contexto();
-            try
-            {
-                lista = contexto.Prestamos.ToList();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                contexto.Dispose();
-            }
-            return lista;
         }
     }
 }

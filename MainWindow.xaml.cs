@@ -33,5 +33,14 @@ namespace Registro_Prestamo
             cPersona cpersona = new cPersona();
             cpersona.Show();
         }
+
+        private void rMorasMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            new rMoras().ShowDialog();
+        }
+        private void cMorasMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            new cMoras().ShowDialog();
+        }
     }
 }
