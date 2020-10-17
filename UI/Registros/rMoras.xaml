@@ -24,7 +24,7 @@
             <!--Fecha-->
             <StackPanel  Width="220" Margin="0,10,0,0" Orientation="Horizontal">
                 <Label Content="Fecha:" />
-                <DatePicker x:Name="FechaDatePicker" Height="25" VerticalAlignment="Center" Text="{Binding Fecha}" />
+                <DatePicker x:Name="FechaDatePicker" Height="25" VerticalAlignment="Center" SelectedDate="{Binding Fecha}" />
             </StackPanel>
 
             <!--aaa-->
