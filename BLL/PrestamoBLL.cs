@@ -10,14 +10,14 @@ namespace Registro_Prestamo.BLL
 {
     public class PrestamoBLL
     {
-        public static bool Guardar(Prestamo prestamo)
+        public static bool Guardar(Prestamos prestamo)
         {
             if (!Existe(prestamo.PrestamoId))
                 return Insertar(prestamo);
             else
                 return Editar(prestamo);
         }
-        private static bool Insertar(Prestamo prestamo)
+        private static bool Insertar(Prestamos prestamo)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
@@ -37,7 +37,7 @@ namespace Registro_Prestamo.BLL
             return paso;
         }
 
-        public static bool Editar(Prestamo prestamo)
+        public static bool Editar(Prestamos prestamo)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
@@ -80,10 +80,10 @@ namespace Registro_Prestamo.BLL
             return paso;
         }
 
-        public static Prestamo Buscar(int id)
+        public static Prestamos Buscar(int id)
         {
             Contexto contexto = new Contexto();
-            Prestamo prestamo;
+            Prestamos prestamo;
             try
             {
                 prestamo = contexto.Prestamos.Find(id);
@@ -118,9 +118,9 @@ namespace Registro_Prestamo.BLL
             }
             return encontrado;
         }
-        public static List<Prestamo> GetList(Expression<Func<Prestamo, bool>> criterio)
+        public static List<Prestamos> GetList(Expression<Func<Prestamos, bool>> criterio)
         {
-            List<Prestamo> lista = new List<Prestamo>();
+            List<Prestamos> lista = new List<Prestamos>();
             Contexto contexto = new Contexto();
             try
             {
@@ -136,9 +136,9 @@ namespace Registro_Prestamo.BLL
             }
             return lista;
         }
-        public static List<Prestamo> GetList()
+        public static List<Prestamos> GetList()
         {
-            List<Prestamo> lista = new List<Prestamo>();
+            List<Prestamos> lista = new List<Prestamos>();
             Contexto contexto = new Contexto();
             try
             {

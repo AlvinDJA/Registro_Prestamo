@@ -9,8 +9,8 @@ using Registro_Prestamo.DAL;
 namespace Registro_Prestamo.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20201017114754_Moras")]
-    partial class Moras
+    [Migration("20201019235811_Cambios Moras ")]
+    partial class CambiosMoras
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -47,7 +47,7 @@ namespace Registro_Prestamo.Migrations
                     b.Property<int>("PrestamoId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<decimal>("Valor")
+                    b.Property<decimal>("Total")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -74,7 +74,7 @@ namespace Registro_Prestamo.Migrations
                     b.ToTable("Personas");
                 });
 
-            modelBuilder.Entity("Registro_Prestamo.Entidades.Prestamo", b =>
+            modelBuilder.Entity("Registro_Prestamo.Entidades.Prestamos", b =>
                 {
                     b.Property<int>("PrestamoId")
                         .ValueGeneratedOnAdd()
@@ -90,6 +90,9 @@ namespace Registro_Prestamo.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<decimal>("Monto")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Mora")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("PersonaId")

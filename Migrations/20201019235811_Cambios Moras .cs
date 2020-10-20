@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Registro_Prestamo.Migrations
 {
-    public partial class Mora : Migration
+    public partial class CambiosMoras : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -19,6 +19,38 @@ namespace Registro_Prestamo.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Moras", x => x.MoraId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Personas",
+                columns: table => new
+                {
+                    PersonaId = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Nombres = table.Column<string>(nullable: true),
+                    Balance = table.Column<decimal>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Personas", x => x.PersonaId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Prestamos",
+                columns: table => new
+                {
+                    PrestamoId = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Fecha = table.Column<DateTime>(nullable: false),
+                    PersonaId = table.Column<int>(nullable: false),
+                    Concepto = table.Column<string>(nullable: true),
+                    Monto = table.Column<decimal>(nullable: false),
+                    Balance = table.Column<decimal>(nullable: false),
+                    Mora = table.Column<decimal>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Prestamos", x => x.PrestamoId);
                 });
 
             migrationBuilder.CreateTable(
@@ -52,6 +84,12 @@ namespace Registro_Prestamo.Migrations
         {
             migrationBuilder.DropTable(
                 name: "MorasDetalle");
+
+            migrationBuilder.DropTable(
+                name: "Personas");
+
+            migrationBuilder.DropTable(
+                name: "Prestamos");
 
             migrationBuilder.DropTable(
                 name: "Moras");

@@ -45,7 +45,7 @@ namespace Registro_Prestamo.Migrations
                     b.Property<int>("PrestamoId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<decimal>("Valor")
+                    b.Property<decimal>("Total")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -72,7 +72,7 @@ namespace Registro_Prestamo.Migrations
                     b.ToTable("Personas");
                 });
 
-            modelBuilder.Entity("Registro_Prestamo.Entidades.Prestamo", b =>
+            modelBuilder.Entity("Registro_Prestamo.Entidades.Prestamos", b =>
                 {
                     b.Property<int>("PrestamoId")
                         .ValueGeneratedOnAdd()
@@ -88,6 +88,9 @@ namespace Registro_Prestamo.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<decimal>("Monto")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Mora")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("PersonaId")

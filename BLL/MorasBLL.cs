@@ -26,6 +26,14 @@ namespace Registro_Prestamo.BLL
             {
                 contexto.Moras.Add(mora);
                 paso = contexto.SaveChanges() > 0;
+                Prestamos prestamo;
+                List<MorasDetalle> detalle = mora.Detalle;
+                foreach(MorasDetalle m in detalle)
+                {
+                    prestamo = PrestamoBLL.Buscar(m.PrestamoId);
+                    prestamo.Mora += m.Total;
+                    PrestamoBLL.Guardar(prestamo);
+                }
             }
             catch (Exception)
             {
@@ -46,10 +54,24 @@ namespace Registro_Prestamo.BLL
             try
             {
                 contexto.Database.ExecuteSqlRaw($"Delete FROM MorasDetalle Where MoraId={mora.MoraId}");
-
                 foreach (var item in mora.Detalle)
                 {
                     contexto.Entry(item).State = EntityState.Added;
+                }
+
+                List<MorasDetalle> viejos = Buscar(mora.MoraId).Detalle;
+                Prestamos prestamo;
+                foreach (MorasDetalle m in viejos)
+                {
+                    prestamo = PrestamoBLL.Buscar(m.PrestamoId);
+                    prestamo.Mora -= m.Total;
+                }
+
+                List<MorasDetalle> nuevo = Buscar(mora.MoraId).Detalle;
+                foreach (MorasDetalle m in nuevo)
+                {
+                    prestamo = PrestamoBLL.Buscar(m.PrestamoId);
+                    prestamo.Mora -= m.Total;
                 }
 
                 contexto.Entry(mora).State = EntityState.Modified;
@@ -77,6 +99,15 @@ namespace Registro_Prestamo.BLL
                 {
                     contexto.Moras.Remove(mora); 
                     paso = contexto.SaveChanges() > 0;
+
+                    Prestamos prestamo;
+                    List<MorasDetalle> detalle = mora.Detalle;
+                    foreach (MorasDetalle m in detalle)
+                    {
+                        prestamo = PrestamoBLL.Buscar(m.PrestamoId);
+                        prestamo.Mora -= m.Total;
+                        PrestamoBLL.Guardar(prestamo);
+                    }
                 }
 
             }

@@ -7,7 +7,7 @@ namespace Registro_Prestamo.UI.Registros
 {
     public partial class rPrestamo : Window
     {
-        private Prestamo prestamo;
+        private Prestamos prestamo;
         private Persona persona;
 
         public rPrestamo()
@@ -21,7 +21,7 @@ namespace Registro_Prestamo.UI.Registros
         }
         private void Limpiar()
         {
-            this.prestamo = new Prestamo();
+            this.prestamo = new Prestamos();
             this.prestamo.Fecha = DateTime.Now;
             this.DataContext = prestamo;
         }
@@ -59,7 +59,7 @@ namespace Registro_Prestamo.UI.Registros
                 this.prestamo = prestamo;
             else
             {
-                this.prestamo = new Prestamo();
+                this.prestamo = new Prestamos();
                 MessageBox.Show("No se ha Encontrado", "Error",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
             }
@@ -69,7 +69,7 @@ namespace Registro_Prestamo.UI.Registros
         }
         private void Buscar2Button_Click(object sender, RoutedEventArgs e)
         {
-            var pers = PersonaBLL.Buscar(Convert.ToInt32(PersonaComboBox.SelectedIndex));
+            var pers = PersonaBLL.Buscar(Convert.ToInt32(PersonaComboBox.SelectedValue));
             if (pers != null)
                 BalanceTextBox.Text = Convert.ToString(pers.Balance);
             else
@@ -80,7 +80,7 @@ namespace Registro_Prestamo.UI.Registros
         {
             if (!Validar())
                 return;
-            var pers = PersonaBLL.Buscar(Convert.ToInt32(PersonaComboBox.SelectedIndex));
+            var pers = PersonaBLL.Buscar(Convert.ToInt32(PersonaComboBox.SelectedValue));
             if (pers != null)
             {
                 BalanceTextBox.Text = Convert.ToString(pers.Balance);
@@ -105,7 +105,7 @@ namespace Registro_Prestamo.UI.Registros
         }
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
         {
-            var pers = PersonaBLL.Buscar(Convert.ToInt32(PersonaComboBox.SelectedIndex));
+            var pers = PersonaBLL.Buscar(Convert.ToInt32(PersonaComboBox.SelectedValue));
             if (pers != null)
             {
                 BalanceTextBox.Text = Convert.ToString(pers.Balance);

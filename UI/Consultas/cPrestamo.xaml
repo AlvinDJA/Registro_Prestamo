@@ -1,4 +1,4 @@
-﻿<Window x:Class="Registro_Prestamo.UI.Consultas.cPrestamo" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:Registro_Prestamo.UI.Consultas" mc:Ignorable="d" Title="Consulta Prestamo" Height="450" Width="450">
+﻿<Window x:Class="Registro_Prestamo.UI.Consultas.cPrestamo" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:Registro_Prestamo.UI.Consultas" mc:Ignorable="d" Title="Consulta Prestamo" Height="327" Width="543">
     <StackPanel Orientation="Vertical" Margin="10,5,10,0">
         <StackPanel Orientation="Horizontal" Height="58">
             <StackPanel Margin="5,0">
@@ -23,8 +23,8 @@
         </StackPanel>
 
         <StackPanel HorizontalAlignment="Left">
-        
-            <DataGrid x:Name="DatosDataGrid" Height="350" Width="527">
+
+            <DataGrid x:Name="DatosDataGrid" Height="240" Width="527" AutoGenerateColumns="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="PrestamoId" Binding="{Binding PrestamoId}"/>
                     <DataGridTextColumn Header="Fecha" Binding="{Binding Fecha}"/>
@@ -32,6 +32,7 @@
                     <DataGridTextColumn Header="Concepto" Binding="{Binding Concepto}"/>
                     <DataGridTextColumn Header="Monto" Binding="{Binding Monto}"/>
                     <DataGridTextColumn Header="Balance" Binding="{Binding Balance}"/>
+                    <DataGridTextColumn Header="Mora" Binding="{Binding Mora}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

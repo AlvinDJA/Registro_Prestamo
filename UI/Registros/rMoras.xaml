@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Registro_Prestamo.UI.Registros"
         mc:Ignorable="d"
-        Title="Registro de Moras" Height="480" Width="415">
+        Title="Registro de Moras" Height="456" Width="458">
     <Grid>
         <StackPanel Orientation="Vertical">
             <!--ID-->
-            <StackPanel  Width="220" Margin="0,20,0,0" Orientation="Horizontal">
+            <StackPanel  Width="220" Margin="10,20,0,0" Orientation="Horizontal" HorizontalAlignment="Left">
                 <Label Content="Id:" />
-                <TextBox Width="20" Height="25" Margin="20,0,0,0" VerticalAlignment="Center" Text="{Binding MoraId}" />
-                
+                <TextBox Width="95" Height="25" Margin="20,0,0,0" VerticalAlignment="Center" Text="{Binding MoraId}" />
+
                 <Button x:Name="BuscarButton" Click="BuscarButton_Click" Margin="10,0,0,0" Width="72">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="\Imagenes\buscar.png" Height="10"/>
@@ -22,61 +22,61 @@
             </StackPanel>
             
             <!--Fecha-->
-            <StackPanel  Width="220" Margin="0,10,0,0" Orientation="Horizontal">
+            <StackPanel  Width="220" Margin="10,20,0,0" Orientation="Horizontal" HorizontalAlignment="Left">
                 <Label Content="Fecha:" />
-                <DatePicker x:Name="FechaDatePicker" Height="25" VerticalAlignment="Center" SelectedDate="{Binding Fecha}" />
-            </StackPanel>
-
-            <!--aaa-->
-            <StackPanel  Width="300" Margin="0,10,0,0" Orientation="Horizontal">
-                <!--Prestamo-->
-                <StackPanel  Width="220"  Orientation="Vertical">
-                    <Label Content="Prestamo:" />
-                    <ComboBox  x:Name="PrestamoComboBox" Height="25" VerticalAlignment="Center" Text="{Binding PrestamoId}" />
-                </StackPanel>
-                <!--Valor-->
-                <StackPanel   Margin="40,0,0,0" Orientation="Vertical">
-                    <Label Content="Valor:" />
-                    <TextBox x:Name="ValorTextBox" Height="25" VerticalAlignment="Center" Text="{Binding Valor}" />
-                </StackPanel>
-            </StackPanel >
-            <!--Agregar Fila-->
-            <StackPanel  Margin="180,0,0,0">
-                <Button x:Name="Agregar"  Margin="0,0,0,0" Width="120" Click="AgregarFilaButton_Click">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/Imagenes/add.png" Height="10"/>
-                        <Label Content="Agregar Fila"/>
-                    </StackPanel>
-                </Button>
+                <DatePicker x:Name="FechaDatePicker" Height="25" VerticalAlignment="Center" SelectedDate="{Binding Fecha}" Width="177" />
             </StackPanel>
             
+            <GroupBox>
+                <!--aaa-->
+                <StackPanel>
+                    <StackPanel  Width="439" Margin="10,10,0,0" Orientation="Horizontal" HorizontalAlignment="Left">
+                        <!--Prestamo-->
+                        <StackPanel  Width="220"  Orientation="Vertical">
+                            <Label Content="Prestamo:" />
+                            <ComboBox  x:Name="PrestamoComboBox" Height="25" VerticalAlignment="Center" Text="{Binding PrestamoId}" />
+                        </StackPanel>
+                        <!--Valor-->
+                        <StackPanel   Margin="10,0,0,0" Orientation="Vertical">
+                            <Label Content="Valor:" />
+                            <TextBox x:Name="ValorTextBox" Height="25" Text="{Binding Valor}" Width="45" />
+                        </StackPanel>
+                        <!--Agregar Fila-->
+                        <Button x:Name="Agregar"   Margin="10,24,0,0" Width="33" Click="AgregarFilaButton_Click" Height="27">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Imagenes/add.png" Height="10"/>
+                            </StackPanel>
+                        </Button>
+                        <!--Remover Fila-->
+                        <Button x:Name="Remover"  Margin="10,24,0,0"  Width="33" Click="RemoverFilaButton_Click" Height="27">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Imagenes/delete.png" Height="10"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel >
 
-            <!--Datos-->
-            <StackPanel  Width="300" Margin="0,0,0,0" >
-                <DataGrid x:Name="MorasDataGrid" ItemsSource="{Binding Detalle}"  Height="150" >
-                    <DataGrid.Columns>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </StackPanel>
-            <!--Agregar Fila-->
-            <StackPanel  Margin="180,0,0,0">
-                <Button x:Name="Remover"  Margin="0,0,0,0" Width="120" Click="RemoverFilaButton_Click">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/Imagenes/delete.png" Height="10"/>
-                        <Label Content="Remover Fila"/>
+                    <!--Datos-->
+                    <StackPanel  Width="400" Margin="10,20,0,0" Orientation="Horizontal" HorizontalAlignment="Left" >
+                        <DataGrid x:Name="MorasDataGrid" ItemsSource="{Binding Detalle}"  Height="150" Width="361" IsReadOnly="True" AutoGenerateColumns="False" >
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Cliente" Binding="{Binding PrestamoId}"/>
+                                <DataGridTextColumn Header="Mora" Binding="{Binding Total}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
                     </StackPanel>
-                </Button>
-            </StackPanel>
+                    <!--Agregar Fila-->
 
-
-            <!--Total-->
-            <StackPanel   Margin="0,10,0,0"  Orientation="Horizontal" Width="300">
-                <Label Content="Total:" HorizontalAlignment="Right"  Margin="210,0,0,0"/>
-                <TextBox x:Name="TotalTextBox" Height="25" Width="51" HorizontalAlignment="Right" Text="{Binding Total}" IsReadOnly="True"/>
-            </StackPanel>
+                    <!--Total-->
+                    <StackPanel   Margin="0,9,11,0"  Orientation="Horizontal" Width="300">
+                        <Label Content="Total:" HorizontalAlignment="Right"  Margin="210,0,0,0"/>
+                        <TextBox x:Name="TotalTextBox" Height="25" Width="51" HorizontalAlignment="Right" Text="{Binding Total}" IsReadOnly="True"/>
+                    </StackPanel>
+                </StackPanel>
+                
+            </GroupBox>
 
             <!--Botone-->
-            <StackPanel Orientation="Horizontal" Margin="0,20,0,0" Width="300">
+            <StackPanel Orientation="Horizontal" Margin="0,20,0,0" Width="300" HorizontalAlignment="Left">
                 <Button x:Name="NuevoButton"  Margin="10,0,0,0" Width="90" Click="NuevoButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="\Imagenes\nuevo.png" Height="10"/>
@@ -87,7 +87,7 @@
                 <Button x:Name="GuardarButton"  Margin="10,0,0,0" Width="90" Click="GuardarButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Imagenes/save-icon-silhouette.png" Height="10"/>
-                        <Label Content="Guardar"/> 
+                        <Label Content="Guardar"/>
                     </StackPanel>
                 </Button>
 
@@ -99,7 +99,6 @@
                 </Button>
 
             </StackPanel>
-            <!--Botones-->
         </StackPanel>
     </Grid>
 </Window>
