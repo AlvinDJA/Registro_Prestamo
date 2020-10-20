@@ -15,23 +15,19 @@ namespace Registro_Prestamo
         }
         public void rPrestamoButton_Click(object sender, RoutedEventArgs e)
         {
-            rPrestamo rprestamo = new rPrestamo();
-            rprestamo.Show();
+            new rPrestamo().ShowDialog();
         }
          public void rPersonaButton_Click(object sender, RoutedEventArgs e)
         {
-            rPersona rpersona = new rPersona();
-            rpersona.Show();
+            new rPersona().ShowDialog();
         }
         public void cPrestamoButton_Click(object sender, RoutedEventArgs e)
         {
-            cPrestamo cprestamo = new cPrestamo();
-            cprestamo.Show();
+            new cPrestamo().ShowDialog();
         }
          public void cPersonaButton_Click(object sender, RoutedEventArgs e)
         {
-            cPersona cpersona = new cPersona();
-            cpersona.Show();
+            new cPersona().ShowDialog();
         }
 
         private void rMorasMenuItem_Click(object sender, RoutedEventArgs e)

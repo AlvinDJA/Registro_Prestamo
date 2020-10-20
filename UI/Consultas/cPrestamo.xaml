@@ -31,7 +31,7 @@
                     <DataGridTextColumn Header="PersonaId" Binding="{Binding PersonaId}"/>
                     <DataGridTextColumn Header="Concepto" Binding="{Binding Concepto}"/>
                     <DataGridTextColumn Header="Monto" Binding="{Binding Monto}"/>
-                    <DataGridTextColumn Header="Balance" Binding="{Binding Balance}"/>
+                    <DataGridTextColumn Header="Balance" Binding="{Binding PersonaId.Balance}"/>
                     <DataGridTextColumn Header="Mora" Binding="{Binding Mora}"/>
                 </DataGrid.Columns>
             </DataGrid>

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Registro_Prestamo.Migrations
 {
-    public partial class CambiosMoras : Migration
+    public partial class Moras : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

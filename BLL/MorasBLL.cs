@@ -53,25 +53,27 @@ namespace Registro_Prestamo.BLL
 
             try
             {
+                
+                Prestamos prestamo;
+                List<MorasDetalle> detalle = Buscar(mora.MoraId).Detalle;
+                foreach (MorasDetalle m in detalle)
+                {
+                    prestamo = PrestamoBLL.Buscar(m.PrestamoId);
+                    prestamo.Mora -= m.Total;
+                    PrestamoBLL.Guardar(prestamo);
+                }
                 contexto.Database.ExecuteSqlRaw($"Delete FROM MorasDetalle Where MoraId={mora.MoraId}");
                 foreach (var item in mora.Detalle)
                 {
                     contexto.Entry(item).State = EntityState.Added;
                 }
 
-                List<MorasDetalle> viejos = Buscar(mora.MoraId).Detalle;
-                Prestamos prestamo;
-                foreach (MorasDetalle m in viejos)
-                {
-                    prestamo = PrestamoBLL.Buscar(m.PrestamoId);
-                    prestamo.Mora -= m.Total;
-                }
-
-                List<MorasDetalle> nuevo = Buscar(mora.MoraId).Detalle;
+                List<MorasDetalle> nuevo = mora.Detalle;
                 foreach (MorasDetalle m in nuevo)
                 {
                     prestamo = PrestamoBLL.Buscar(m.PrestamoId);
-                    prestamo.Mora -= m.Total;
+                    prestamo.Mora += m.Total;
+                    PrestamoBLL.Guardar(prestamo);
                 }
 
                 contexto.Entry(mora).State = EntityState.Modified;
@@ -94,22 +96,19 @@ namespace Registro_Prestamo.BLL
             try
             {
                 var mora = MorasBLL.Buscar(id);
-
+                Prestamos prestamo;
+                List<MorasDetalle> viejosDetalles = Buscar(mora.MoraId).Detalle;
+                foreach (MorasDetalle d in viejosDetalles)
+                {
+                    prestamo = PrestamoBLL.Buscar(d.PrestamoId);
+                    prestamo.Mora -= d.Total;
+                    PrestamoBLL.Guardar(prestamo);
+                }
                 if (mora != null)
                 {
-                    contexto.Moras.Remove(mora); 
+                    contexto.Entry(mora).State = EntityState.Deleted;
                     paso = contexto.SaveChanges() > 0;
-
-                    Prestamos prestamo;
-                    List<MorasDetalle> detalle = mora.Detalle;
-                    foreach (MorasDetalle m in detalle)
-                    {
-                        prestamo = PrestamoBLL.Buscar(m.PrestamoId);
-                        prestamo.Mora -= m.Total;
-                        PrestamoBLL.Guardar(prestamo);
-                    }
                 }
-
             }
             catch (Exception)
             {

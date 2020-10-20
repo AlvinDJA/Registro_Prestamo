@@ -9,8 +9,8 @@ using Registro_Prestamo.DAL;
 namespace Registro_Prestamo.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20201019235811_Cambios Moras ")]
-    partial class CambiosMoras
+    [Migration("20201020014606_Moras")]
+    partial class Moras
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
